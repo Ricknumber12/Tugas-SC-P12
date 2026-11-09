@@ -1,0 +1,31 @@
+name: CI Code Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint (Ruff)
+        run: ruff check .
+
+      - name: Format Check (Black)
+        run: black --check .
+
+      - name: Run Tests
+        run: pytest --cov=. --cov-fail-under=50
