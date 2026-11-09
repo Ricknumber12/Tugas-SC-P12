@@ -1,6 +1,4 @@
-
-
-from main import tambah, kurang
+from main import kurang, tambah
 
 
 def test_tambah():
