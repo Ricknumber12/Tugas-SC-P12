@@ -1,4 +1,4 @@
-from main import tambah
+
 
 from main import tambah, kurang
 
