@@ -28,4 +28,4 @@ jobs:
         run: black --check .
 
       - name: Run Tests
-        run: pytest --cov=. --cov-fail-under=50
+        run: pytest --cov=. --cov-fail-under=80
